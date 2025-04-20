@@ -8,6 +8,10 @@ use App\Models\Room;
 
 use App\Models\Booking;
 
+use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     public function room_details($id)
@@ -64,4 +68,26 @@ class HomeController extends Controller
             return redirect()->back()->with('message', 'Room Booked Successfully'); 
         }
     }
+
+    public function bookings()
+    {
+        $bookings = Booking::with('room')->get(); 
+        return view('home.user_bookings', compact('bookings'));
+    }
+
+    public function user_bookings()
+    {
+        $room = Room::all();
+        $user = Auth::user()->email;
+        $bookings = Booking::with('room')->where('email', '=', $user)->get();
+        return view('home.user_bookings', compact('bookings'), compact('room'));
+
+    }
+
+    public function home()
+    {
+        return view('home.home');
+    }
+
+    
 }

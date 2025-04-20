@@ -6,7 +6,7 @@
     <style type="text/css">
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #2e3036;
+        background-color: #150C0C;
         margin: 0;
         padding: 0;
       }
@@ -14,10 +14,11 @@
       .container {
         width: 100%;
         max-width: 600px;
-        margin: 50px auto;
+        margin: 90px auto;
         padding: 20px;
         background: #2e3036;
         border-radius: 10px;
+        background-color: #150C0C;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
@@ -115,12 +116,13 @@
         <div class="form-group">
           <label for="type">Room Type</label>
           <select id="type" name="type" onchange="updateRoomDetails()">
-            <option value="regular">Regular</option>
-            <option value="premium">Premium</option>
-            <option value="duluxe">Duluxe</option>
+           <option value="Regular" selected>Regular</option>
+           <option value="Premium">Premium</option>
+           <option value="Duluxe">Duluxe</option>
           </select>
         </div>
 
+        
 
         <div class="form-group">
   <label for="price">Price</label>
@@ -158,28 +160,29 @@
 
     @include('admin.footer')
 
-    <script>
+ <script>
       function updateRoomDetails() {
-        // Ambil elemen input
-        const typeSelect = document.getElementById('type');
-        const priceInput = document.getElementById('price');
-        const wifiSelect = document.getElementById('wifi');
+      const typeSelect = document.getElementById('type');
+      const priceInput = document.getElementById('price');
+      const wifiSelect = document.getElementById('wifi');
 
-        // Ambil jenis room type yang dipilih
-        const roomType = typeSelect.value;
+      const roomType = typeSelect.value;
 
-        // Atur nilai price dan wifi berdasarkan room type
-        if (roomType === 'regular') {
-          priceInput.value = 500000;
-          wifiSelect.value = 'no';
-        } else if (roomType === 'premium') {
-          priceInput.value = 1000000;
-          wifiSelect.value = 'yes';
-        } else if (roomType === 'duluxe') {
-          priceInput.value = 5000000;
-          wifiSelect.value = 'yes';
-        }
+      if (roomType === 'Regular') {
+        priceInput.value = 500000;
+        wifiSelect.value = 'no';
+      } else if (roomType === 'Premium') {
+        priceInput.value = 1000000;
+        wifiSelect.value = 'yes';
+      } else if (roomType === 'Duluxe') {
+        priceInput.value = 5000000;
+        wifiSelect.value = 'yes';
       }
-    </script>
+    }
+
+      // Call on page load
+      window.onload = updateRoomDetails;
+  </script>
+
   </body>
 </html>

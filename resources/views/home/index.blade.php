@@ -19,9 +19,6 @@
       <!-- banner -->
       
       <style>
-
-
-    
 .banner_main {
     position: relative;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
@@ -90,7 +87,7 @@
                 <div class="book_room">
                     <h1>Ayo Cari Kamar yang Cocok untuk Kamu</h1>
                         <div class="col-md-12">
-                            <button class="book_btn">Book Now</button>
+                            <button class="book_btn" style="background-color: blue;">Book Now</button>
                         </div>
                     </form>
                 </div>
@@ -117,12 +114,12 @@
       
         
 <div  class="our_room" id="ourroom">
-         <div class="container">
+         <div class="container" >
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Our Room</h2>
-                     <p>Lorem Ipsum available, but the majority have suffered </p>
+                     <h2>Kamar yang Tersedia</h2>
+                     <p>Pilih yang sesuai dengan yang kamu mau ya ^^</p>
                   </div>
                </div>
             </div>
@@ -164,7 +161,7 @@
                         src="room/{{$rooms->image}}" alt="#"/></figure>
                      </div>
                      <div class="bed_room">
-                        <h3>{{$rooms->room_title}}</h3>
+                        <h3>{{$rooms->room_type}}</h3>
                         <p style="padding: 10px">{!! Str::limit($rooms->description,100) !!}</p>
 
                         <a class="btn btn-primary"href="{{url('room_details',$rooms->id)}}">Room Details<a>
@@ -180,15 +177,7 @@
       
 
       <!-- end our_room -->
-      <!-- gallery -->
-      @include('home.gallery')
-      <!-- end gallery -->
-      <!-- blog -->
-      @include('home.blog')
-      <!-- end blog -->
-      <!--  contact -->
-      @include('home.contact')
-      <!-- end contact -->
+      
       <!--  footer -->
       @include('home.footer')
       <!-- end footer -->

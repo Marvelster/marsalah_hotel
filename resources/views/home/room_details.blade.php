@@ -3,7 +3,6 @@
    <head>
       <base href="/public">
       @include('home.css')
-
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    </head>
    <body class="main-layout">
@@ -13,179 +12,117 @@
       <header>
          @include('home.header')
       </header>
-      <div class="our_room">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Our Room</h2>
-                     <p>Lorem Ipsum available, but the majority have suffered </p>
-                  </div>
-               </div>
-            </div>
-            <style>
-               .our_room{
-                  margin-top: -10px;
-               }
-
-               .bed_room {
-                   background-color: white;
-                   border-radius: 30px;
-                   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
-                   padding: 15px;
-               }
-
-               .our_room {
-                  position: relative;
-                  overflow: hidden;
-               }
-
-               .our_room::after {
-                  content: "";
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 150px;
-                  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-                  pointer-events: none;
-               }
-
-               .booking-form {
-                  background: white;
-                  padding: 13px;
-                  border-radius: 20px;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                  max-width: 400px;
-                  margin: auto;
-               }
-
-               .booking-form h1 {
-                  font-size: 36px;
-                  text-align: center;
-                  margin-bottom: 20px;
-                  font-weight: bold;
-               }
-
-               .booking-form label {
-                  font-weight: bold;
-                  margin-top: 10px;
-               }
-
-               .booking-form input {
-                  width: 100%;
-                  padding: 5px;
-                  margin-top: 5px;
-                  border: 1px solid #ccc;
-                  border-radius: 8px;
-                  font-size: 16px;
-               }
-
-               .booking-form .btn-primary {
-                  width: 100%;
-                  padding: 5px;
-                  margin-top: 15px;
-                  background-color: #007bff;
-                  border: none;
-                  border-radius: 8px;
-                  font-size: 18px;
-                  color: white;
-                  cursor: pointer;
-                  transition: background 0.3s ease;
-               }
-
-               .booking-form .btn-primary:hover {
-                  background-color: #0056b3;
-               }
-
-               
-            </style>
-            <div class="row">
-               <div class="col-md-8" style="align-items: center">
-                  <div id="serv_hover" class="room">
-                     <div class="room_img">
-                        <img style="height: 300px; width: 100%; object-fit: cover" 
-                           src="/room/{{$room->image}}" alt="#"/>
-                     </div>
-                     <div class="bed_room">
-                        <h3>{{$room->room_title}}</h3>
-
-                        
-                        <p style="padding: 12px">{{$room->description}}</p>
-                        <h4 style="padding: 12px">Free Wifi : {{$room->wifi}}</h4>
-                        <h4 style="padding: 12px">Room Type : {{$room->room_type}}</h4>
-                        <h3 style="padding: 12px">Price : Rp{{$room->price}}</h3>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="booking-form">
-                     <h1>Book Room</h1>
-
-                     @if(session()->has('message'))
-
-                     <div class="alert alert-success">
-
-                     <button type="button" class="close" data-bs-dismiss="alert">x</button>
-
-                     {{session()->get('message')}}
-                     </div>
-
-                     @endif
-
-
-                     @if($errors)
-
-
-                     @foreach($errors->all() as $errors)
-
-                     <li style="color:red">
-                      {{$errors}}
-                     </li>
-
-                     @endforeach
-                     @endif
-
-                     <form action="{{url('add_booking',$room->id)}}" method="Post">
-
-                     @csrf
-
-                     <label>Name</label>
-                     <input type="text" name="name" placeholder="Enter your name"
-                      @if(Auth::id())     
-                      value="{{Auth::user()->name}}" placeholder="Enter your name"
-                      @endif>
-
-
-                     <label>Email</label>
-                     <input type="email" name="email" placeholder="Enter your email"
-                      @if(Auth::id())     
-                      value="{{Auth::user()->email}}" placeholder="Enter your email"
-                      @endif>
-
-                     <label>Phone</label>
-                     <input type="number" name="phone" placeholder="Enter your phone number"
-                      @if(Auth::id())     
-                      value="{{Auth::user()->phone}}" placeholder="Enter your phone number"
-                      @endif>
-
-                     <label>Start Date</label>
-                     <input type="date" name="startDate" id="startDate">
-
-                     <label>End Date</label>
-                     <input type="date" name="endDate" id="endDate">
-
-                     <input type="submit" class="btn btn-primary" value="Book Room">
-                  </div>
-
-                </form> 
-
-                
-
-               </div>
-            </div>
-         </div>
+     <!-- BODY SECTION: Redesain simple dan elegan -->
+<div class="our_room py-5 bg-light" style="margin-top: -1px;">
+  <div class="container pt-5">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="display-5 fw-bold">Our Rooms</h2>
+        <p class="text-muted">Pilih kamar yang paling sesuai dengan kebutuhan Anda.</p>
       </div>
+    </div>
+    <div class="row gx-4 gy-5">
+      <!-- ROOM CARD -->
+      <div class="col-lg-7">
+        <div class="card shadow-sm room-card overflow-hidden">
+          <div class="ratio ratio-16x9 mb-3">
+            <img src="/room/{{$room->image}}" class="card-img-top object-fit-cover" alt="{{$room->room_title}}">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title fw-bold mb-2">{{$room->room_title}}</h3>
+            <p class="card-text text-secondary small mb-4">{{$room->description}}</p>
+            <ul class="list-unstyled mb-0" style="margin-left: -8px;">
+              <li class="mb-2"><i class="bi bi-wifi me-2"></i>Free Wifi: <strong>{{$room->wifi}}</strong></li>
+              <li><i class="bi bi-house-door me-2"></i>Room Type: <strong>{{$room->room_type}}</strong></li>
+            </ul>
+            <h4 class="mt-4 text-primary fw-bold">Rp {{$room->price}}</h4>
+          </div>
+        </div>
+      </div>
+      <!-- BOOKING FORM -->
+      <div class="col-lg-5">
+        <div class="card shadow-sm booking-card p-4">
+        <h3 class="mb-4 text-center fw-semibold fs-3">Book Your Stay</h3>
+          @if(session()->has('message'))
+            <div class="alert alert-success small mb-3">
+              {{ session('message') }}
+            </div>
+          @endif
+          <form action="{{ url('add_booking', $room->id) }}" method="POST" novalidate>
+            @csrf
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda"
+                @if(Auth::id()) value="{{ Auth::user()->name }}" @endif>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email"
+                @if(Auth::id()) value="{{ Auth::user()->email }}" @endif>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" id="phone" name="phone" class="form-control" placeholder="Nomor telepon"
+                @if(Auth::id()) value="{{ Auth::user()->phone }}" @endif>
+            </div>
+            <div class="row gx-2">
+              <div class="col">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="date" id="startDate" name="startDate" class="form-control" min="{{ date('Y-m-d') }}">
+              </div>
+              <div class="col">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" id="endDate" name="endDate" class="form-control" min="{{ date('Y-m-d') }}">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-4">Book Room</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOM CSS -->
+<style>
+  .room-card {
+    border: none;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  .ratio.overflow-hidden {
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+  .object-fit-cover {
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .object-fit-cover:hover {
+    transform: scale(1.05);
+  }
+  .booking-card {
+    border: none;
+    border-radius: 1rem;
+    background: #ffffff;
+  }
+  .booking-card .form-control {
+    border-radius: .5rem;
+  }
+  .booking-card .btn-primary {
+    border-radius: .75rem;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .booking-card .btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+  }
+</style>
       @include('home.footer')
       <script type="text/javascript">
          $(function(){ 

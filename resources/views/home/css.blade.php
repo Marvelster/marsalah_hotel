@@ -5,7 +5,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>keto</title>
+      <title>Marsalah Hotel</title>
+      <!-- Favicon -->
+      <link rel="icon" href="/images/MARSALAH.png" type="image/png" />
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">

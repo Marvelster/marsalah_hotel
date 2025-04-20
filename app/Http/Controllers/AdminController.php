@@ -136,9 +136,9 @@ class AdminController extends Controller
 
     public function bookings()
     {
-
         $data=Booking::all();
         return view('admin.booking',compact('data'));
+        
     }
 
     public function delete_booking($id)
@@ -171,4 +171,6 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+
 }

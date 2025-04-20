@@ -8,6 +8,9 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\HotelController;
 
+use App\Http\Controllers\BookingController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,4 +52,5 @@ route::get('/approve_book/{id}',[AdminController::class, 'approve_book']);
 
 route::get('/reject_book/{id}',[AdminController::class, 'reject_book']);
 
-route::get('/hotels', [HotelController::class, 'hotels']);
+route::get('/user_bookings',[HomeController::class, 'user_bookings']);
+

@@ -1,12 +1,19 @@
+<style>
+
+</style> 
+
 <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      <nav id="sidebar">
+      <nav id="sidebar" style="background-image: linear-gradient(to bottom, black, darkred); opacity: 0.95;">
+
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="admin/img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar" style="width: 78px; height: 60px; overflow: hidden;">
+            <img src="admin/img/profile-me.jpg" alt="..." class="img-fluid rounded-circle" style="width: 100%; height: auto;">
+          </div>
           <div class="title">
             <h1 class="h5">Marchellino Salvian Hartanto</h1>
-            <p>Web Designer</p>
+            <p>Section: <b>CEO</b></p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -23,10 +30,5 @@
                 <li>
                   <a href="{{url('bookings')}}"> <i class="icon-home"></i>Bookings</a>
                 </li>
-
-                <li>
-                  <a href=""> <i class="icon-home"></i>Gallary</a>
-                </li>
-                
         </ul>
       </nav>
